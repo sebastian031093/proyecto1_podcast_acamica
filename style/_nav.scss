@@ -1,0 +1,745 @@
+//-----------Vriables--------------------------
+$browser-context: 16px; // Default
+$altoBotones: em(48px);
+
+//-------Colores-----------
+$color1: #060A24;
+$color2: #FFFFFF;
+$botonColor:#00F3BB;
+
+//------Tipologias de letras-----
+$titulos: 'IBM Plex Sans', sans-serif;
+$texto: 'IBM Plex Mono', monospace;
+$botonText: 'IBM Plex Sans', sans-serif;
+
+
+
+//---------Funciones-----------------------------
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+//--------Mixins------------------------
+@mixin buttomStyle($top, $rigth, $botton, $left){
+  margin: 0%;
+  width: 100%;
+  background-color: $botonColor;
+  border: none;
+  color: $color1;
+  padding: $top $rigth $botton $left;
+  text-align: center;
+  font-size: em(16px);
+  font-family: $botonText;
+  cursor: pointer;
+}
+
+@mixin Titulos {
+  margin: 0%;
+  font-family: $titulos;
+  color: #060A24;
+  font-size: em(36px);
+}
+
+@mixin Texto {
+  color: $color1;
+  font-size: em(26px, );
+  font-family: $titulos;
+}
+
+@mixin Parrafos{
+  margin: 0%;
+  font-family: $texto;
+  color: $color1;
+  font-size: em(14px);
+  
+}
+
+@mixin Titulos2 {
+  margin: 0%;
+  font-family: $titulos;
+  color: $color2;
+  font-size: em(36px);
+  
+}
+
+@mixin Footer {
+  margin: 0%;
+  font-family: $texto;
+  font-size: em(14px);
+  color: $color1;
+  
+}
+
+
+html{
+  scroll-behavior: smooth;
+
+} 
+
+.colors{
+  color: #0000ff;
+}
+
+.linea{
+ text-decoration: line-through;
+}
+  
+//-------Style nav-bar------------------------------  
+.Navigator{
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: white;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+
+  &-logo{
+    margin-left: em(16px);
+      
+  }
+
+
+  &-items{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size:em(16px);
+    list-style: none;
+    padding: 0%;
+    text-align: center;
+    //Escondo los items.....
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+     
+      
+  }
+
+  &-item{
+    padding: em(16px);
+    &:hover{
+      background: linear-gradient( 225deg, #0000FE 5%, #00F0B8 100%)
+    }
+  }
+
+  &-link{
+    text-decoration: none;
+    color:$color1;
+  }
+
+  &-action{
+    border: none;
+    margin: 0 em(19px) 0 0;
+  }
+
+  &-hiddenAction{
+    display: none;
+  }
+
+  //~ "Encuentra elemtos hermanos" cuando 1 este:checked 2 ocupa todo el espacio 
+  &-hiddenAction:checked ~ &-items{
+    max-height: 100vh;
+  }
+
+  //---------------Style cuerpo-------------------------
+}
+
+.mySVG2{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vw;
+}
+
+
+.Container{
+  width: 100vw; // se adapta al ancho de la pantalla
+  position: relative;
+  display: flex;
+  flex-direction: column;
+ 
+
+ &-item1{
+   position: relative;
+   margin: 0% em(16px, ) em(24px) em(16px, );
+ }
+
+ &-item2{
+    position: relative;
+    width: 100vw;
+    height: em(1203.5px, );
+    background: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+ }
+
+ &-mySVG1{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+ }
+
+ &-item3{
+    width: 100vw;
+    height: em(519px, );
+    position: relative;
+ }
+
+ &-item4{
+   padding: 0 em(16px, ) 0 em(16px, );
+   height: em(308px, );
+ }
+
+ &-item5{
+    width: 100vw;
+ }
+
+ &-item6{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+ }
+
+ &-item7{
+    position: relative;
+    width: 100vw;
+    height: em(341px,);
+    background: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+ }
+
+ &-mySVG3{
+   position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+ }
+
+ &-footerpage{
+   position: relative;
+   height: em(121px, );
+   display: flex;
+   flex-direction: column;
+   
+ }
+
+} 
+
+
+
+//------Items dentro de contenedores hijos del la clase Container
+
+.item1{
+
+  &-text1{
+    width: 100%;
+    @include Titulos;
+    padding: em(29px) 0 0 0;
+  }
+
+  &-textA{
+    width: 100%;
+    @include Titulos; 
+    padding: 0%;
+  }
+
+  
+  &-parrafo1{
+    height: 66px;
+    width: 100%;
+    @include Parrafos;
+    padding: em(16px) 0 0 0;
+    
+  }
+
+  &-boton{
+    @include buttomStyle(5%, 5%, 5%, 5%);
+    margin: em(36px) 0 0 0;
+  }
+}
+
+iframe{
+    margin: 0 11px 11px 11px;
+    height: 232px;
+    width: fill-available;
+}
+
+.item2{
+
+  &-text2{
+    margin: 0%;
+    @include Titulos2;
+    padding: 64px 0 28px 16px;
+  }
+}
+
+
+.item3{
+
+  &-phone{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 10%; 
+    justify-content: center;
+  }
+}
+
+.item4{
+  &-text2{
+    @include Titulos;
+  }
+
+  &-text2A{
+    @include Titulos;
+    
+  }
+
+  &-parrafo1{
+    @include Parrafos;
+  }
+
+  &-parrafo2{
+    @include Parrafos;
+    padding: 8px 0 0 0;
+  }
+}
+
+
+
+
+.item5{
+
+  &-image{
+    font-size: 0;
+  }
+
+  &-invitadas{
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  &-text3{
+    @include Titulos();
+    padding: 0 0 0 16px;
+  }
+
+  &-text3A{
+    @include Titulos();
+    padding: 0 0 14px 16px;
+  }
+
+}
+
+
+.item6{
+
+  &-text4{
+    @include Titulos;
+    padding: 48px 16px 0 16px;
+  }
+
+  &-text4A{
+    @include Titulos;
+    padding: 0% 0 0 16px;
+  }
+
+  &-container{
+    padding: 0 em(16px, ) 0 em(16px, );
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-logos1{
+    margin: 36px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-logos2{
+    margin: 49px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-logos3{
+    margin: 65px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-logos4{
+    margin: 65px 0 42px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+.text5{
+  margin: 13px 0 0 0;
+  text-align: center;
+  padding: 0 em(16px, );
+  @include Texto();
+}
+
+.header3{
+  margin: 0 em(16px, ) 0 em(16px, );
+}
+
+.item7{
+
+  &-text6{
+    padding: 65px 0 0 0;
+    text-align: center;
+    @include Titulos2();
+  }
+
+  &-text6A{
+    text-align: center;
+    @include Titulos2();
+  }
+
+  &-text6B{
+    text-align: center;
+    @include Titulos2();
+  }
+
+  &-boton{
+    @include buttomStyle(5%, 5%, 5%, 5%);
+    margin: em(36px) 0 0 0;
+  }
+}
+
+.footerpage-text6{
+  margin: 24px 0 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-family: $texto;
+  color: $color1;
+}
+
+.footerpageitems{
+  text-decoration: none;
+  padding: 0%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: em(16px, ) em(45px, ) em(31px, ) em(45px, );
+
+}
+
+.fab{
+  color: $color1;
+  text-decoration: none;
+  border-radius: 50%;
+  line-height: em(30px, );
+  font-size: em(16px, );
+}
+
+.fab:hover{
+  transform: scale(2);
+  transition: 0.2s all;
+}
+
+
+    
+//@media print: Media query para DESk
+
+@media (min-width: 768px) {
+
+  .colors{
+    color: #0000ff;
+  }
+
+  .Navigator{
+    //width: 100vw;
+    height: em(80px);
+    max-height: em(80px);
+    display: flex;
+    justify-content: space-between;
+    
+    &-logo{
+     margin-left: em(100px);
+    }
+
+    &-action{
+      display: none;
+    }
+
+    &-items{
+      display: flex;
+      margin-right: em(100px);
+      max-height: initial;
+       
+    }
+
+    &-item{
+      margin-left: em(48px);
+    }
+  }
+
+  .Container{
+
+    width: 100%;
+
+    &-item1{
+      margin-left: 10%;
+      margin-top: 7.5em;
+      padding-left: 7vw;
+    }
+
+    &-imgcontainer{
+      display: flex;
+    }
+
+    &-item4{
+      margin-top: 10%;
+    }
+
+    &-item5{
+      margin-bottom: 3%;
+    }
+
+    &-item7{
+      height: em(528px, );
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &-footerpage{
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+  }
+
+  //--------elementos hijos------------
+
+  .item1{
+
+    &-text1{
+      font-size: em(64px, );
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0%;
+    }
+
+    &-textA{
+      font-size: em(64px, );
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+
+    &-parrafo1{
+      padding: 0%;
+      width: em(628px, );//628px;
+      font-size: em(16px, );//16px;
+      height: auto;
+    }
+
+    &-boton{
+      width: 19%;
+      margin: 56px 0 0 0;
+      padding: 1.5% 2% 1.5% 2%;
+    }
+  }
+
+  .item2{
+
+    &-text2{
+      margin: 10.84% 0% 0% 16.8%;
+      font-size: 48px;
+      padding: 0%;
+    }
+
+    &-podcastchanell{
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+      grid-gap: 6%;
+      margin: 3% 8% 0% 8%;
+    }
+
+    &-podcast{
+      border: 0em;
+      background-color: transparent;
+    }
+
+  }
+
+  .item3{
+
+    &-phone{
+      width: 50%;
+      height: 120%;
+      left: 30%;
+    }
+  }
+
+  .item4{
+
+    &-text2{
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+
+    &-text2A{
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+
+    &-parrafo1{
+      font-family: $texto;
+      color: $color1;
+      margin: 5% 0 0 0;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 0 32% 0 0;
+
+    }
+
+    &-parrafo2{
+      font-family: $texto;
+      color: $color1;
+      margin: 2% 0 0 0;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 0 32% 0 0;
+    }
+
+   
+  }
+
+
+  .item5{
+
+    &-header4{
+      padding: 0 0 0 7vw;
+      margin: 3% 5%;
+    }
+    
+
+    &-text3{
+      font-size: 36px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+
+    &-text3A{
+      font-size: 36px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+
+    &-image{
+      font-size: 0;
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+
+    &-invitadas{
+      width: 33.33333%;
+    }
+  }
+
+  .logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10%;
+  }
+
+  .item6{
+
+    &-header2{
+      padding: 0 0 0 7vw;
+      margin: 3% 5%;
+    }
+
+    &-text4{
+      font-size: 36px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0%;
+    }
+
+    &-text4A{
+      font-size: 36px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0 0.5%;
+    }
+    
+    &-logos1{
+      margin: 49px 0 0 0;
+    }
+
+  }
+
+  .item7{
+
+    &-header3{
+      margin: em(200px, ) 0% 0% 0%;
+    }
+
+    &-text6{
+      font-size: 48px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0%;
+    }
+
+    &-text6A{
+      font-size: 48px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0%;
+    }
+
+    &-text6B{
+      font-size: 48px;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0%;
+    }
+
+    &-boton{
+      font-size: 18px;
+      width: 25%;
+      padding: 2% 4% 2% 5%;
+      margin: 36px 5% 5% 38%;
+    }
+  }
+
+  .footerpage-text6{
+    margin: 50px 0 0 0;
+  }
+
+  .footerpageitems{
+    margin: 50px 0 0 0;
+  }
+
+  .footerpageitems-item{
+    padding-left: 2em;
+  }
+
+}
